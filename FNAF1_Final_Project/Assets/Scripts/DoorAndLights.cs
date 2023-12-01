@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,34 +15,46 @@ public class DoorAndLights : MonoBehaviour
 
     //Vector3 of DoorPos
     public Vector3 doorPos;
-    
+    private float doorMax;
+
+    private void Awake()
+    {
+        doorPos = GetComponent<Transform>().position;
+        doorMax = doorPos.y + 4.0f;
+    }
+
 
     void openDoor()
     {
-        transform.Translate(new Vector3(0.0f, 4.0f, 0.0f));
-        //GetComponent<Transform>().position = new Vector3(doorPos.x, doorPos.y + 4, doorPos.z);
-        //doorOpen = true;
+        Door.transform.Translate(Vector3.up * (Time.deltaTime * 10));
     }
 
     void closeDoor()
     {
-        transform.Translate(new Vector3(0.0f, -4.0f, 0.0f));
-        //GetComponent<Transform>().position = new Vector3(doorPos.x, doorPos.y + 4, doorPos.z);
-       // doorOpen=false;
+        Door.transform.Translate(Vector3.down * (Time.deltaTime * 10));
+
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (openTheDoor)
         {
             openDoor();
-            openTheDoor = false;
+            if (Door.GetComponent<Transform>().position.y >= doorMax )
+            {
+                openTheDoor = false;
+            }
+            
         }
 
         if (closeTheDoor)
         {
             closeDoor();
-            closeTheDoor = false;
+            if (Door.GetComponent<Transform>().position.y <= doorPos.y)
+            {
+                closeTheDoor = false;
+            }
+            
         }
 
 

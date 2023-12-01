@@ -28,7 +28,9 @@ public class PlayerLook : MonoBehaviour
     private void Update()
     {
 
-        //looking(playerInput.Movement.Looking.ReadValue<Vector2>() * xSens);
-        Mathf.Clamp(looking(playerInput.Movement.Looking.ReadValue<Vector2>() * xSens), -30f, 30f);
+
+        looking(playerInput.Movement.Looking.ReadValue<Vector2>() * xSens);
+        
     }
+
 }
