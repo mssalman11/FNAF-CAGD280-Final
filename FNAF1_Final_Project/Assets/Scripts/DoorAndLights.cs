@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DoorAndLights : MonoBehaviour
 {
-    public bool openTheDoor;
+    public bool openTheDoor = false;
     public bool closeTheDoor;
     protected bool lightsOn;
 
