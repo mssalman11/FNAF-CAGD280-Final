@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorButt : MonoBehaviour
 {
-    public GameObject Doorr;
+    public GameObject Door;
 
     private void OnMouseEnter()
     {
@@ -15,14 +15,14 @@ public class DoorButt : MonoBehaviour
     private void OnMouseDown()
     {
         
-        if (Doorr.GetComponent<DoorAndLights>().openTheDoor  == false && Doorr.GetComponent<DoorAndLights>().doorOpen != true)
+        if (Door.GetComponent<DoorAndLights>().openTheDoor  == false && Door.GetComponent<DoorAndLights>().doorOpen != true)
         {
-            Doorr.GetComponent<DoorAndLights>().openTheDoor = true;
+            Door.GetComponent<DoorAndLights>().openTheDoor = true;
             
         }
         else
         {
-            Doorr.GetComponent<DoorAndLights>().closeTheDoor = true;
+            Door.GetComponent<DoorAndLights>().closeTheDoor = true;
             
 
         }
