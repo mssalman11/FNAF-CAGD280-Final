@@ -15,13 +15,16 @@ public class DoorButt : MonoBehaviour
     private void OnMouseDown()
     {
         
-        if (Doorr.GetComponent<DoorAndLights>().openTheDoor  == false)
+        if (Doorr.GetComponent<DoorAndLights>().openTheDoor  == false && Doorr.GetComponent<DoorAndLights>().doorOpen != true)
         {
             Doorr.GetComponent<DoorAndLights>().openTheDoor = true;
+            
         }
         else
         {
             Doorr.GetComponent<DoorAndLights>().closeTheDoor = true;
+            
+
         }
     }
 }

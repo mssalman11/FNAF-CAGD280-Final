@@ -8,30 +8,32 @@ public class DoorAndLights : MonoBehaviour
 {
     public bool openTheDoor = false;
     public bool closeTheDoor;
+    public bool doorOpen;
     protected bool lightsOn;
 
     public GameObject Door;
-    //public GameObject rightDoor;
-
-    //Vector3 of DoorPos
     public Vector3 doorPos;
     private float doorMax;
+    private float doorMin;
 
     private void Awake()
     {
         doorPos = GetComponent<Transform>().position;
         doorMax = doorPos.y + 4.0f;
+        //doorMin = doorPos.y;
     }
 
 
     void openDoor()
     {
         Door.transform.Translate(Vector3.up * (Time.deltaTime * 10));
+        doorOpen = true;
     }
 
     void closeDoor()
     {
         Door.transform.Translate(Vector3.down * (Time.deltaTime * 10));
+        doorOpen = false;
 
     }
 
@@ -40,9 +42,10 @@ public class DoorAndLights : MonoBehaviour
         if (openTheDoor)
         {
             openDoor();
-            if (Door.GetComponent<Transform>().position.y >= doorMax )
+            if (Door.GetComponent<Transform>().position.y >= doorMax)
             {
                 openTheDoor = false;
+                
             }
             
         }
@@ -53,6 +56,7 @@ public class DoorAndLights : MonoBehaviour
             if (Door.GetComponent<Transform>().position.y <= doorPos.y)
             {
                 closeTheDoor = false;
+               
             }
             
         }
