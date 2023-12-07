@@ -18,6 +18,7 @@ public class CameraSwitch : MonoBehaviour {
     public CinemachineVirtualCamera FIVE;
     public CinemachineVirtualCamera SEVEN;
     public CinemachineVirtualCamera SIX;
+    public CinemachineVirtualCamera OFFICE;
 
     [SerializeField]
     List<CinemachineVirtualCamera> cameras;
@@ -38,6 +39,7 @@ public class CameraSwitch : MonoBehaviour {
         cameras.Add(FIVE);
         cameras.Add(SEVEN);
         cameras.Add(SIX);
+
     }
 
     
@@ -57,9 +59,25 @@ public class CameraSwitch : MonoBehaviour {
 
     public void goBack()
     {
-        ONEA.Priority = 0;
+        OFFICE.Priority = 20;
+        ONEA.Priority = 19;
+        ONEB.Priority = 18;
+        ONEC.Priority = 17;
+        TWOA.Priority = 16;
+        TWOB.Priority = 15;
+        THREE.Priority = 14;
+        FOURA.Priority = 13;
+        FOURB.Priority = 12;
+        FIVE.Priority = 11;
+        SIX.Priority = 9;
+        SEVEN.Priority = 10;
+        
     }
 
-
+    public void defaultForCams()
+    {
+        OFFICE.Priority = 19;
+        ONEA.Priority = 20;
+    }
 }
 
